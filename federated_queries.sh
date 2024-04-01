@@ -5,6 +5,8 @@ PROJECT_ID=$(gcloud info --format='value(config.project)')
 PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
 CONNECTION_SERVICE_ACCOUNT=service-$PROJECT_NUMBER@gcp-sa-bigqueryconnection.iam.gserviceaccount.com
 
+gcloud services enable bigquery.googleapis.com
+
 bq mk --connection --display_name='Cloud SQL connection - Names' --connection_type='CLOUD_SQL' \
   --properties="{\"instanceId\":\"$CONNECTION_ID\",\"database\":\"bts\",\"type\":\"MYSQL\"}" \
   --connection_credential="{\"username\":\"root\", \"password\":\"$PASSWORD\"}" \
