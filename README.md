@@ -19,5 +19,13 @@ If asked for the password type it.
 FEDERATED QUERIES:
 1. Check file federated_queries.sh whether some variables need to changed & execute it
 ```
-3. sh federal_queries.sh
+sh federal_queries.sh
+```
+2. Now you can query data from Cloud SQL using queries like:
+```
+SELECT
+  *
+FROM
+  EXTERNAL_QUERY("digital-bonfire-419015.eu.names_connection_id",
+    "SELECT * FROM names ;");
 ```
