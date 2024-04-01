@@ -15,7 +15,10 @@ gcloud sql users set-password root --host % --instance $INSTANCE_NAME --password
 ADDRESS=$(wget -qO - http://ipecho.net/plain)/32  
 gcloud sql instances patch $INSTANCE_NAME --authorized-networks $ADDRESS
 
-
+# Get Adress IF of SQL and connect to it using local-infile which enables the LOAD DATA LOCAL INFILE statement.
+# LOAD DATA LOCAL INFILE is used when the file is located on the client's filesystem and can be accessed locally by the MySQL client.
+# The version with LOAD DATA INFILE won't work it the case since it is used when the file is located on the server's filesystem 
+# or accessible via a network file path. However, MySQL does not directly support loading files from remote URLs or Cloud Storage locations.
 MYSQLIP=$(gcloud sql instances describe $INSTANCE_NAME --format="value(ipAddresses.ipAddress)")
 mysql --host=$MYSQLIP --user=root --password --local-infile -e "create database if not exists bts;
 use bts;
@@ -30,6 +33,4 @@ LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (name,surname,age);"
 
-# LOAD DATA LOCAL INFILE is used when the file is located on the client's filesystem and can be accessed locally by the MySQL client.
-# The version with LOAD DATA INFILE won't work it the case since it is used when the file is located on the server's filesystem 
-# or accessible via a network file path. However, MySQL does not directly support loading files from remote URLs or Cloud Storage locations.
+
