@@ -3,7 +3,7 @@ PROJECT_ID=$(gcloud info --format='value(config.project)')
 INSTANCE_NAME=names-inst-new
 PASSWORD=passw
 
-gcloud sql instances create $INSTANCE_NAME --tier=db-n1-standard-1 --activation-policy=ALWAYS --region=us-central1
+gcloud sql instances create $INSTANCE_NAME --tier=db-n1-standard-1 --activation-policy=ALWAYS --region=eu-central1
 gcloud sql users set-password root --host % --instance $INSTANCE_NAME --password $PASSWORD
 
 ADDRESS=$(wget -qO - http://ipecho.net/plain)/32
