@@ -1,5 +1,5 @@
-name;surname;age
-Kate;Smith;18
-Ann;Brown;32
-Will;Blue;44
-Max;Monday;65
+name,surname,age
+Kate,Smith,18
+Ann,Brown,32
+Will,Blue,44
+Max,Monday,65
