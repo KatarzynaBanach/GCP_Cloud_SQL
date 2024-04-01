@@ -17,12 +17,7 @@ If asked for the password type it.
 
 
 FEDERATED QUERIES:
-1. Enable revelant API:
+1. Check file federated_queries.sh whether some variables need to changed & execute it
 ```
-gcloud services enable bigquery.googleapis.com
+3. sh federal_queries.sh
 ```
-& go to Big Query Studio
-3. Get the Cloud SQL Instance Connection Name using command:
-gcloud sql instances describe names-inst-new  --format="value(connectionName)
-4. Check file federated_queries.sh whether some variables need to changed & execute it.
-sh federal_queries.sh
