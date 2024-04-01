@@ -8,6 +8,7 @@ use bts;
 drop table if exists names;
 create table names (
 name VARCHAR(10),
+surname VARCHAR(15),
 age INT);
 LOAD DATA LOCAL INFILE 'names_data.csv' INTO TABLE names
 FIELDS TERMINATED BY ','
