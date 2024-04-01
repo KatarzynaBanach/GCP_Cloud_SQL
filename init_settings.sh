@@ -3,14 +3,18 @@ PROJECT_ID=$(gcloud info --format='value(config.project)')  # Project ID for act
 INSTANCE_NAME=names-inst-new
 PASSWORD=passw
 
-gcloud sql instances create $INSTANCE_NAME \
---tier=db-n1-standard-1 --activation-policy=ALWAYS --region=eu-central1 --database-version=MYSQL_8_0  # Creating Instance of MySQL.
-#  The activation policy determines whether the instance remains active or is deactivated when there are no connections to it. 
+# Create Instance of MySQL.
+# The activation policy determines whether the instance remains active or is deactivated when there are no connections to it. 
 # Setting it to ALWAYS means the instance remains active even if there are no connections.
+#  % is a wildcard that means any host, indicating that the password can be used from any host.
+gcloud sql instances create $INSTANCE_NAME --tier=db-n1-standard-1 --activation-policy=ALWAYS --region=eu-central1 --database-version=MYSQL_8_0  
 gcloud sql users set-password root --host % --instance $INSTANCE_NAME --password $PASSWORD
 
-ADDRESS=$(wget -qO - http://ipecho.net/plain)/32
+
+# Get Current IP Adress of Cloud Shell & add it to the list of authorized networks that are allowed to connect to the Cloud SQL instance.
+ADDRESS=$(wget -qO - http://ipecho.net/plain)/32  
 gcloud sql instances patch $INSTANCE_NAME --authorized-networks $ADDRESS
+
 
 MYSQLIP=$(gcloud sql instances describe $INSTANCE_NAME --format="value(ipAddresses.ipAddress)")
 mysql --host=$MYSQLIP --user=root --password --local-infile -e "create database if not exists bts;
