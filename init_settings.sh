@@ -1,9 +1,12 @@
 gcloud services enable sqladmin.googleapis.com
-PROJECT_ID=$(gcloud info --format='value(config.project)')
+PROJECT_ID=$(gcloud info --format='value(config.project)')  # Project ID for active project.
 INSTANCE_NAME=names-inst-new
 PASSWORD=passw
 
-gcloud sql instances create $INSTANCE_NAME --tier=db-n1-standard-1 --activation-policy=ALWAYS --region=eu-central1
+gcloud sql instances create $INSTANCE_NAME \
+--tier=db-n1-standard-1 --activation-policy=ALWAYS --region=eu-central1 --database-version=MYSQL_8_0  # Creating Instance of MySQL.
+#  The activation policy determines whether the instance remains active or is deactivated when there are no connections to it. 
+# Setting it to ALWAYS means the instance remains active even if there are no connections.
 gcloud sql users set-password root --host % --instance $INSTANCE_NAME --password $PASSWORD
 
 ADDRESS=$(wget -qO - http://ipecho.net/plain)/32
@@ -22,3 +25,7 @@ FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (name,surname,age);"
+
+# LOAD DATA LOCAL INFILE is used when the file is located on the client's filesystem and can be accessed locally by the MySQL client.
+# The version with LOAD DATA INFILE won't work it the case since it is used when the file is located on the server's filesystem 
+# or accessible via a network file path. However, MySQL does not directly support loading files from remote URLs or Cloud Storage locations.
