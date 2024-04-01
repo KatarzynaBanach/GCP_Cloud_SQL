@@ -26,6 +26,14 @@ sh federal_queries.sh
 SELECT
   *
 FROM
-  EXTERNAL_QUERY("digital-bonfire-419015.eu.names_connection_id",
+  EXTERNAL_QUERY("{PROJECT_ID}.{LOCATION}.{CONNECTION_ID}",
+    "SELECT * FROM {TABLE} ;");
+```
+example:
+```
+SELECT
+  *
+FROM
+  EXTERNAL_QUERY("my_proj.eu.names_connection_id",
     "SELECT * FROM names ;");
 ```
