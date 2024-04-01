@@ -9,3 +9,8 @@ cp /home/banachkatarzyna10/init_settings.sh ./init_settings.sh
 sh init_setting.sh
 You will be asked: 'Do you want to continue?' press 'y'
 If asked for the password type it.
+
+
+FEDERATED QUERIES:
+1. Enable revelant API:
+gcloud services enable bigquery.googleapis.com
