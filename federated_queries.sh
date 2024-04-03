@@ -14,7 +14,7 @@ bq mk --connection --display_name='Cloud SQL connection - Names' --connection_ty
   --connection_credential="{\"username\":\"root\", \"password\":\"$PASSWORD\"}" \
   --project_id=$PROJECT_ID --location=eu names_connection_id
 
-# Add the Cloud SQL Client role to a service account relevant to External Connetion.
+# Add the Cloud SQL Client role to a service account relevant to External Connection.
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member=serviceAccount:$CONNECTION_SERVICE_ACCOUNT \
     --role=roles/cloudsql.client
