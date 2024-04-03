@@ -37,3 +37,19 @@ FROM
   EXTERNAL_QUERY("my_proj.eu.names_connection_id",
     "SELECT * FROM names ;");
 ```
+
+
+## LOAD TO CLOUD STORAGE & TO BIG QUERY:
+1. Check file to_cloudstorage_to_bq.sh whether some variables need to changed & execute it (bucket name needs to be changed for sure, since it needs to be unique globally)
+```
+sh to_cloudstorage_to_bq.sh
+```
+2. Now you have data in Cloud Storage as well as you can query data that was loaded into Big Query.
+
+
+
+
+TODO:
+-files with data into one folder
+-allow passing variables into command line
+-more complex dataset
