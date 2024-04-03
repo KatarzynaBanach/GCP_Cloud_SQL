@@ -29,13 +29,13 @@ bq --location='EU' mk \
     --label=category:prod \
     $PROJECT_ID:$DATASET_ID
 
-# Create Table.
+# Create Table. Schema from json file.
 bq mk \
 --table \
 $PROJECT_ID:$DATASET_ID.$TABLE_NAME \
 names_schema.json
 
-# Load data into table??.
+# Load data into table.
 bq load \
 --source_format=CSV \
 $DATASET_ID.$TABLE_NAME \
