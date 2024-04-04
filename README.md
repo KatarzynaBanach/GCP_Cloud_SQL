@@ -1,3 +1,5 @@
+_IN PROGRESS_ 
+
 # GCP_Cloud_SQL
 ## SETUP:
 
@@ -49,8 +51,8 @@ sh to_cloudstorage_to_bq.sh
 
 
 
-TODO:
--allow passing variables into command line
--more complex dataset
--new user and quering from cs
--schema what is happening
+TO BE DONE:
+* allow passing variables into command line
+* more complex dataset
+* new user to SQL instance and quering from cs
+* schema what is happening
