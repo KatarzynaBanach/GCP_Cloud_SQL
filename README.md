@@ -21,7 +21,7 @@ If asked for the password type it in.
 ## FEDERATED QUERIES:
 1. Check file federated_queries.sh whether some variables need to changed & execute it
 ```
-sh federal_queries.sh
+sh federated_queries.sh
 ```
 2. Now you can query data from Cloud SQL using queries like:
 ```
