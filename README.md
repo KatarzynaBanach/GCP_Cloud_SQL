@@ -50,7 +50,6 @@ sh to_cloudstorage_to_bq.sh
 
 
 TODO:
--files with data into one folder
 -allow passing variables into command line
 -more complex dataset
 -new user and quering from cs
