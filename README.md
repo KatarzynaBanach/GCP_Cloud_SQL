@@ -38,7 +38,20 @@ SELECT
 FROM
   EXTERNAL_QUERY("digital-bonfire-419015.eu.netflix_connection_id", "SELECT * FROM netflix.netflix_shows;");
 ```
-
+If you want to create a dataset and persistent table with the netflix data the following query can be useful:
+```
+DROP SCHEMA IF EXISTS netflix;
+CREATE SCHEMA netflix
+OPTIONS (
+  location = "EU"
+);
+CREATE OR REPLACE TABLE netflix.netflix AS 
+SELECT
+*
+FROM
+EXTERNAL_QUERY("digital-bonfire-419015.eu.netflix_connection_id", "SELECT * FROM netflix.netflix_shows;");
+```
+*Specifying location the same as location of external connection is important.
 
 ## LOAD TO CLOUD STORAGE & TO BIG QUERY:
 1. Check file to_cloudstorage_to_bq.sh whether some variables need to changed & execute it (bucket name needs to be changed for sure, since it needs to be unique globally)
