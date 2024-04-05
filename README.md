@@ -34,10 +34,9 @@ FROM
 example:
 ```
 SELECT
-  *
+*
 FROM
-  EXTERNAL_QUERY("my_proj.eu.names_connection_id",
-    "SELECT * FROM names ;");
+  EXTERNAL_QUERY("digital-bonfire-419015.eu.netflix_connection_id", "SELECT * FROM netflix.netflix_shows;");
 ```
 
 
