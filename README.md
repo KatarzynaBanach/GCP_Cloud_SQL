@@ -2,14 +2,14 @@ _IN PROGRESS_
 
 # GCP_Cloud_SQL
 
-Stack: GCP, bash, Cloud SQL (MySQL), BigQuery, Cloud Storage
+**Stack: GCP, bash, Cloud SQL (MySQL), BigQuery, Cloud Storage**
 
 While learning about different GCP storage possibilities I really wanted to know them in practical way, how to use them, how to load, query and extract data, how to transfer data into different storage options. That repo allows to play with Cloud SQL and show some its basics features. 
 I encountered challanges such as: 
-* location limits (important to consider during transferring data),
-* finding out that each time a new session in Cloud Shell is started, there is a new IP Adress, so I have to grab it each time and add it to authorised adresses,
-* adding suitable roles to relevant service accounts,
-* trying to do as much as possible using bash scripting and command-line Cloud Shell instead of clicking in Cloud Console - so that in the future those steps could be automated (as we all know automation is crucial while buidling data pipelines).
+* **location contraints** (important to consider during transferring data),
+* finding out that each time **a new session in Cloud Shell is started, there is a new IP Adress**, so I have to grab it each time and add it to authorised adresses,
+* adding **suitable roles** to relevant service accounts,
+* trying to do as much as possible using **bash scripting and command-line Cloud Shell** instead of clicking in Cloud Console - so that in the future those **steps could be automated** (as we all know automation is crucial while buidling data pipelines).
 
 The flow of data using that repo:
 ![obraz](https://github.com/KatarzynaBanach/GCP_Cloud_SQL/assets/102869680/2a74ee92-9306-4e0d-b222-cd5bba631446)
