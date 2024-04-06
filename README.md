@@ -31,8 +31,7 @@ cd GCP_Cloud_SQL-main/
 ```
 sh init_setting.sh
 ```
-You will be asked: 'Do you want to continue?' -> press 'y'
-If asked for the password type it in.
+You will be asked: 'Do you want to continue?' -> press 'y'. If asked for the password type it in.
 
 ## FEDERATED QUERIES:
 1. Check file federated_queries.sh whether some variables need to changed & execute it
@@ -75,8 +74,7 @@ Execute it.
 ```
 sh query_from_shell.sh
 ```
-You will be asked: 'Do you want to continue?' -> press 'y'
-If asked for the password type it in.
+You will be asked: 'Do you want to continue?' -> press 'y'. If asked for the password type it in.
 When connected to MySql instance command-line you can use SQL queries (remember about ';', otherwise query won't be executed and pressing enter just will move you to new line).
 ![obraz](https://github.com/KatarzynaBanach/GCP_Cloud_SQL/assets/102869680/77ad48dd-4991-4733-83ba-8af9d44061e7)
 
