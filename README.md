@@ -2,6 +2,8 @@ _IN PROGRESS_
 
 # GCP_Cloud_SQL
 
+Stack: GCP, bash, Cloud SQL (MySQL), BigQuery, Cloud Storage
+
 While learning about different GCP storage possibilities I really wanted to know them in practical way, how to use them, how to load, query and extract data, how to transfer data into different storage options. That repo allows to play with Cloud SQL and show some its basics features. 
 I encountered challanges such as: 
 * location limits (important to consider during transferring data),
@@ -9,7 +11,12 @@ I encountered challanges such as:
 * adding suitable roles to relevant service accounts,
 * trying to do as much as possible using bash scripting and command-line Cloud Shell instead of clicking in Cloud Console - so that in the future those steps could be automated (as we all know automation is crucial while buidling data pipelines).
 
-Stack: GCP, bash, Cloud SQL (MySQL), BigQuery, Cloud Storage 
+The flow of data using that repo:
+![obraz](https://github.com/KatarzynaBanach/GCP_Cloud_SQL/assets/102869680/2a74ee92-9306-4e0d-b222-cd5bba631446)
+
+*Used Data comes from Imdb stating the most watched Netflix original shows globally.
+Source of Data: [https://www.kaggle.com/code/adarsh0063/most-watched-netflix-data-analysis
+](https://www.kaggle.com/datasets/jatinthakur706/most-watched-netflix-original-shows-tv-time)
 
 ## SETUP:
 
@@ -26,7 +33,6 @@ sh init_setting.sh
 ```
 You will be asked: 'Do you want to continue?' -> press 'y'
 If asked for the password type it in.
-
 
 ## FEDERATED QUERIES:
 1. Check file federated_queries.sh whether some variables need to changed & execute it
@@ -63,6 +69,18 @@ EXTERNAL_QUERY("digital-bonfire-419015.eu.netflix_connection_id", "SELECT * FROM
 ```
 *Specifying location the same as location of external connection is important.
 
+## QUERING FROM CLOUD SHELL
+1. Check file query_from_shell.sh whether some variable need to be changed (such as password for new user - it is best practice to use user other then root on daily basis).
+Execute it.
+```
+sh query_from_shell.sh
+```
+You will be asked: 'Do you want to continue?' -> press 'y'
+If asked for the password type it in.
+When connected to MySql instance command-line you can use SQL queries (remember about ';', otherwise query won't be executed and pressing enter just will move you to new line).
+![obraz](https://github.com/KatarzynaBanach/GCP_Cloud_SQL/assets/102869680/77ad48dd-4991-4733-83ba-8af9d44061e7)
+
+
 ## LOAD TO CLOUD STORAGE & TO BIG QUERY:
 1. Check file to_cloudstorage_to_bq.sh whether some variables need to changed & execute it (bucket name needs to be changed for sure, since it needs to be unique globally)
 ```
@@ -94,4 +112,3 @@ ORDER BY appeared_in_top DESC
 TO BE DONE:
 * allow passing variables into command line
 * new user to SQL instance and quering from cs
-* schema what is happening
