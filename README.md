@@ -1,6 +1,9 @@
 _IN PROGRESS_ 
 
 # GCP_Cloud_SQL
+
+While learning about different GCP storage possibilities I really wanted to know them in practical way, how to use them, how to load, query and extract data, how to transfer data into different storage options. That repo allows to play with Cloud SQL and show some its basics features. I encountered challanges such as location limits (important to consider during transferring data), adding suitable roles to relevant service accounts, trying to do as much as possible using bash scripting and command-line Cloud Shell instead of clicking in Cloud Console - so that in the future those steps could be automated (as we all know automation is crucial while buidling data pipelines).
+
 ## SETUP:
 
 1. Download that github repo as a .zip & activate Cloud Shell & upload it into Cloud Shell persistant disk.
@@ -59,12 +62,21 @@ EXTERNAL_QUERY("digital-bonfire-419015.eu.netflix_connection_id", "SELECT * FROM
 sh to_cloudstorage_to_bq.sh
 ```
 2. Now you have data in Cloud Storage as well as you can query data that was loaded into Big Query.
-
-
+Examplary query displaying top 10 genres and the average rating (transforming 'genre' column into ARRAY may be useful)
+```
+SELECT
+  REPLACE(genre, ' ', '') as top_genre,
+  COUNT(*) as appeared_in_top,
+  ROUND(AVG(rating), 2) avg_rating
+FROM `digital-bonfire-419015.netflix_from_CS.netflix_shows`
+JOIN UNNEST(SPLIT(genre, ',')) genre
+GROUP BY top_genre
+ORDER BY appeared_in_top DESC
+LIMIT 10
+```
 
 
 TO BE DONE:
 * allow passing variables into command line
-* more complex dataset
 * new user to SQL instance and quering from cs
 * schema what is happening
