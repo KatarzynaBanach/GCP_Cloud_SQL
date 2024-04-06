@@ -64,18 +64,26 @@ EXTERNAL_QUERY("digital-bonfire-419015.eu.netflix_connection_id", "SELECT * FROM
 sh to_cloudstorage_to_bq.sh
 ```
 2. Now you have data in Cloud Storage as well as you can query data that was loaded into Big Query.
-Examplary query displaying top 10 genres and the average rating (transforming 'genre' column into ARRAY may be useful)
+Examplary query displaying appeared_in_top top watched 10 genres, the average rating and rank based on that rating (transforming 'genre' column into ARRAY may be useful).
 ```
+WITH shows AS (
 SELECT
-  REPLACE(genre, ' ', '') as top_genre,
-  COUNT(*) as appeared_in_top,
-  ROUND(AVG(rating), 2) avg_rating
+  REPLACE(genre, ' ', '') AS top_genre,
+  COUNT(*) AS appeared_in_top,
+  ROUND(AVG(rating), 2) AS avg_rating
 FROM `digital-bonfire-419015.netflix_from_CS.netflix_shows`
 JOIN UNNEST(SPLIT(genre, ',')) genre
 GROUP BY top_genre
 ORDER BY appeared_in_top DESC
 LIMIT 10
+)
+SELECT
+  top_genre, appeared_in_top, avg_rating,
+  RANK() OVER (ORDER BY avg_rating DESC) AS rank_by_avg_rating
+FROM shows
+ORDER BY appeared_in_top DESC
 ```
+![obraz](https://github.com/KatarzynaBanach/GCP_Cloud_SQL/assets/102869680/068b6d87-c9cd-4237-8e34-3a1516fd0442)
 
 
 TO BE DONE:
