@@ -20,11 +20,10 @@ Source of Data: [https://www.kaggle.com/code/adarsh0063/most-watched-netflix-dat
 
 ## SETUP:
 
-1. Download that github repo as a .zip & activate Cloud Shell & upload it into Cloud Shell persistant disk.
-2. Unzip it & choose that directory:
+1. Open Cloud Shell, copy repo and choose that directory:
 ```
-unzip GCP_Cloud_SQL-main.zip
-cd GCP_Cloud_SQL-main/
+git -C ~ clone https://github.com/KatarzynaBanach/GCP_Cloud_SQL
+cd GCP_Cloud_SQL/
 ```
 4. Check file init_setting.sh, change an examplary password and other variables if needed.
 5. Execute file :
