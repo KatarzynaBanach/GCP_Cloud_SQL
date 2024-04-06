@@ -105,8 +105,3 @@ FROM shows
 ORDER BY appeared_in_top DESC
 ```
 ![obraz](https://github.com/KatarzynaBanach/GCP_Cloud_SQL/assets/102869680/068b6d87-c9cd-4237-8e34-3a1516fd0442)
-
-
-TO BE DONE:
-* allow passing variables into command line
-* new user to SQL instance and quering from cs
