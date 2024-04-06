@@ -4,6 +4,8 @@ _IN PROGRESS_
 
 While learning about different GCP storage possibilities I really wanted to know them in practical way, how to use them, how to load, query and extract data, how to transfer data into different storage options. That repo allows to play with Cloud SQL and show some its basics features. I encountered challanges such as location limits (important to consider during transferring data), adding suitable roles to relevant service accounts, trying to do as much as possible using bash scripting and command-line Cloud Shell instead of clicking in Cloud Console - so that in the future those steps could be automated (as we all know automation is crucial while buidling data pipelines).
 
+Stack: GCP, bash, Cloud SQL (MySQL), BigQuery, Cloud Storage 
+
 ## SETUP:
 
 1. Download that github repo as a .zip & activate Cloud Shell & upload it into Cloud Shell persistant disk.
