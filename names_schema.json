@@ -1,14 +1,30 @@
 [
     {
-      "name": "name",
+      "name": "viewer_index",
+      "type": "INTEGER"
+    },
+    {
+      "name": "title",
       "type": "STRING"
     },
     {
-      "name": "surname",
+      "name": "age_limit",
+      "type": "INTEGER"
+    },
+    {
+      "name": "runtime",
+      "type": "INTEGER"
+    },
+    {
+      "name": "genre",
       "type": "STRING"
     },
     {
-      "name": "age",
+      "name": "rating",
+      "type": "FLOAT"
+    },
+    {
+      "name": "votes",
       "type": "INTEGER"
     }
-  ]
+]
