@@ -1,5 +1,3 @@
-_IN PROGRESS_ 
-
 # GCP Cloud SQL
 
 **Stack: GCP, bash, Cloud SQL (MySQL), BigQuery, Cloud Storage**
